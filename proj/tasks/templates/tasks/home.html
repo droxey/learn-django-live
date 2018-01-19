@@ -1,0 +1,22 @@
+{% extends "tasks/base.html" %}
+
+{% block title %}Task List{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col-md-12">
+    {% if name %}
+      <h2>{{ name }}</h2>
+    {% else %}
+      <p class="warning">you have no name</p>
+    {% endif %}
+    <ul class="list-group">
+      {% for task in tasks %}
+        <li class="list-group-item">{{ task.description }}</li>
+      {% empty %}
+        <li class="no-tasks">no tasks!!</li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+{% endblock %}
