@@ -1,16 +1,24 @@
-from django.shortcuts import render
+from django.shortcuts import render, Http404
 from django.http import HttpResponse
 from tasks.models import Task
+
+from django.views.generic import ListView
+
 
 """
 The homepage with task list.
 """
-def home(request):
-  tasks = Task.objects.all()
-  return render(request, 'tasks/home.html', {
-    'name': 'dani',
-    'tasks': tasks
-  })
+class TaskListView(ListView):
+  model = Task
+  template_name = 'tasks/home.html'
+
+  def get_context_data(self, **kwargs):
+    context = super(TaskListView, self).get_context_data(**kwargs)
+
+    # Add context here for the activity.
+
+    return context
+
 
 """
 Page to add a task.
@@ -28,12 +36,21 @@ def complete_task(request):
   return HttpResponse(html_string)
 
 
+
+
+
 """
 Page that will allow us to view a single task by ID.
 """
 def view_task(request, task_id):
-  task = Task.objects.get(id=task_id)
+  try:
+    task = Task.objects.get(id=task_id)
+  except Task.DoesNotExist:
+    raise Http404('Task does not exist.')
+  # task = get_object_or_404(Task, task_id)
   return render(request, 'tasks/view.html', {
       'name': 'dani',
       'task': task
   })
+
+
