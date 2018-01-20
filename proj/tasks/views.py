@@ -1,8 +1,10 @@
-from django.shortcuts import render, Http404
-from django.http import HttpResponse
+from django.shortcuts import render, Http404, redirect
+from django.http import HttpResponse, HttpResponseRedirect
 from tasks.models import Task
+from tasks.forms import TaskForm
 
 from django.views.generic import ListView
+from django.urls import reverse
 
 
 """
@@ -18,7 +20,16 @@ class TaskListView(ListView):
 Page to add a task.
 """
 def add_task(request):
-  return render(request, 'tasks/add.html', {})
+  if request.method == 'POST':
+    form = TaskForm(request.POST)
+    if form.is_valid():
+      new_task = Task(description=request.POST.get('description', ''))
+      new_task.save()
+      return HttpResponseRedirect(reverse('task-list'))
+  form = TaskForm()
+  return render(request, 'tasks/add.html', {
+    'form': form
+  })
 
 
 """

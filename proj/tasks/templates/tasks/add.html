@@ -6,10 +6,12 @@
     <h2>Add Task</h2>
     <form action="{% url 'add-task' %}" method="POST">
         {% csrf_token %}
-        <div class="form-group">
-            <label for="description">Task:</label>
-            <input type="text" name="description" class="form-control" placeholder="Type task details...">
-        </div>
+        {% for field in form %}
+            <div class="form-group">
+                {{ field.errors }}
+                {{ field.label_tag }}: {{ field }}
+            </div>
+        {% endfor %}
         <button type="submit" class="btn btn-primary">Add Task</button>
     </form>
 
