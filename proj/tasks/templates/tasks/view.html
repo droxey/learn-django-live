@@ -1,0 +1,14 @@
+{% extends "tasks/base.html" %}
+
+{% block title %}View Task - Task ID: {{ task.id }}{% endblock %}
+
+{% block content %}
+    <h2>Task: {{ task.id }}</h2>
+    <h3>{{ task.complete }}</h3>
+    <p>{{ task.description }}</p>
+    {% if task.complete %}
+        <p>{{ task.completed }}</p>
+    {% else %}
+        <p>Not done yet! Get to work.</p>
+    {% endif %}
+{% endblock %}

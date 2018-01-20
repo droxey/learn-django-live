@@ -26,3 +26,14 @@ Endpoint to complete tasks.
 def complete_task(request):
   html_string = '<h1>Complete Task</h1>'
   return HttpResponse(html_string)
+
+
+"""
+Page that will allow us to view a single task by ID.
+"""
+def view_task(request, task_id):
+  task = Task.objects.get(id=task_id)
+  return render(request, 'tasks/view.html', {
+      'name': 'dani',
+      'task': task
+  })
