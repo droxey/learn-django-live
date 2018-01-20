@@ -10,7 +10,7 @@ All code written live during class on 1/18/2018 (21.2) and 1/20/2018 (21.3).
 
 1. Clone the repository: `git clone git@github.com:outputs-io/learn-django-live.git`
 1. Navigate to the freshly cloned directory: `cd learn-django-live`
-1. Create and activate a new virtualenv via `virtualenv` OR `virtualenvwrapper` commands:
+1. Create and activate a new virtualenv via `virtualenv`:
   1. `virtualenv env`
   1. `source env/bin/activate`
 1. Install Django in your new virtualenv: `pip install django`
