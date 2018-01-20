@@ -1,0 +1,16 @@
+{% extends "tasks/base.html" %}
+
+{% block title %}View Task - Task ID: {{ task.id }}{% endblock %}
+
+{% block content %}
+    <h2>Add Task</h2>
+    <form action="{% url 'add-task' %}" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="description">Task:</label>
+            <input type="text" name="description" class="form-control" placeholder="Type task details...">
+        </div>
+        <button type="submit" class="btn btn-primary">Add Task</button>
+    </form>
+
+{% endblock %}

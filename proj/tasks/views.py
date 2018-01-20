@@ -18,8 +18,7 @@ class TaskListView(ListView):
 Page to add a task.
 """
 def add_task(request):
-  html_string = '<h1>Add Task</h1>'
-  return HttpResponse(html_string)
+  return render(request, 'tasks/add.html', {})
 
 
 """
