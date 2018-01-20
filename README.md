@@ -11,12 +11,8 @@ All code written live during class on 1/18/2018 (21.2) and 1/20/2018 (21.3).
 1. Clone the repository: `git clone git@github.com:outputs-io/learn-django-live.git`
 1. Navigate to the freshly cloned directory: `cd learn-django-live`
 1. Create and activate a new virtualenv via `virtualenv` OR `virtualenvwrapper` commands:
-  - Option 1: Presented in Class (Simple: See [Documentation](https://virtualenv.readthedocs.io/en/latest/))
-    1. `virtualenv env`
-    1. `source env/bin/activate`
-  - Option 2: Using `virtualenvwrapper` (Advanced: See [Documentation](https://virtualenvwrapper.readthedocs.io/en/latest/))
-    1. `mkvirtualenv tasks`
-    1. `workon tasks`
+  1. `virtualenv env`
+  1. `source env/bin/activate`
 1. Install Django in your new virtualenv: `pip install django`
 1. Navigate to the root Django project: `cd proj`
 1. Run migrations: `python manage.py migrate`
