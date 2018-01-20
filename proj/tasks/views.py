@@ -11,13 +11,7 @@ The homepage with task list.
 class TaskListView(ListView):
   model = Task
   template_name = 'tasks/home.html'
-
-  def get_context_data(self, **kwargs):
-    context = super(TaskListView, self).get_context_data(**kwargs)
-
-    # Add context here for the activity.
-
-    return context
+  context_object_name = 'tasks'
 
 
 """
