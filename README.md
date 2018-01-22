@@ -46,3 +46,8 @@ This repo is a work in progress, and covers the following (basic!) Django topics
   - Demonstrates the use of basic templatetag logic: `{% if %}{% else %}{% endif %}`
   - Iterating over a `QuerySet` via `{% for %}{% empty %}{% endfor %}`.
   - Using a variable in a template with the `{{ variable_name }}` syntax.
+- **Generic Views**
+  - Writing a generic view.
+  - Modifying a generic view's context.
+- **Forms**
+  - Rendering a `ModelForm` in a template.
